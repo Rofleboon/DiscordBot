@@ -26,30 +26,7 @@ namespace InsoBot
             InitializeComponent();
         }
 
-        public static int GetRandomUnusedPort()
-        {
-            var listener = new TcpListener(IPAddress.Loopback, 0);
-            listener.Start();
-            var port = ((IPEndPoint)listener.LocalEndpoint).Port;
-            listener.Stop();
-            return port;
-        }
-
-
-
-        private DiscordSocketClient _client;
         private string authLink = "https://discordapp.com/api/oauth2/authorize?client_id=649900073286631434&redirect_uri=https%3A%2F%2Fdepleto.com%2Fredirect%2F&response_type=code&scope=webhook.incoming%20messages.read";
-
-
-
-        public async Task Test ()
-        {
-            _client = new DiscordSocketClient();
-            await _client.LoginAsync(TokenType.Webhook, "577fctqeaG31QU3OFluR9SB2LNKRhsEP");
-            await _client.StartAsync();
-
-            await Task.Delay(-1);
-        }
 
         private void linkDiscordAcc_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
